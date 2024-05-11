@@ -3,10 +3,7 @@ package com.mohamed.abdi.book.role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mohamed.abdi.book.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -16,10 +13,10 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "_user")
 @EntityListeners(AuditingEntityListener.class) // this is for auditing so that we can know when a user was created or last modified.
 public class Role {
 
