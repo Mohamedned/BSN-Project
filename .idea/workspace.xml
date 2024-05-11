@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7913df-b267-4a68-ae6c-bb0143555ee0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab9a65210a7cada469765db926812e34b0f95a6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab9a65210a7cada469765db926812e34b0f95a6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsn/src/main/java/com/mohamed/abdi/book/BookNetworkApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bsn/src/main/java/com/mohamed/abdi/book/BookNetworkApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bsn/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bsn/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bsn/src/main/java/com/mohamed/abdi/book/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/bsn/src/main/java/com/mohamed/abdi/book/user/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

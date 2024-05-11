@@ -1,5 +1,6 @@
 package com.mohamed.abdi.book.user;
 
+import com.mohamed.abdi.book.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,12 +10,15 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -27,7 +31,7 @@ public class User implements UserDetails, Principal {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
 
     private String firstName;
     private String lastName;
@@ -48,7 +52,8 @@ public class User implements UserDetails, Principal {
     @Column(insertable = false) // this column is not insertable when creating a new user
     private LocalDateTime lastModifiedDate;
 
-    // private List<Role> roles; // we will add this later
+    @ManyToMany(fetch = FetchType.EAGER) // this is for eager fetching so that we can get the roles of a user when we get the user
+    private List<Role> roles; // this is a manyToMany relationship with the Role entity
 
     @Override
     public String getName() {
@@ -57,7 +62,10 @@ public class User implements UserDetails, Principal {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.roles
+                .stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList());
     }
 
     @Override
