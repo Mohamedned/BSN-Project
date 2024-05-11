@@ -7,3 +7,5 @@ Fbsn/src/main/java/com/mohamed/abdi/book/BookNetworkApiApplication.java,8\7\87f
 bsn/pom.xml,1\0\100c70dbade9e104c2c7e0b8e275a25e7b71a079
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+f
+6bsn/src/main/java/com/mohamed/abdi/book/user/User.java,3\a\3ab9a65210a7cada469765db926812e34b0f95a6
