@@ -1,11 +1,15 @@
 package com.mohamed.abdi.book.auth;
 
+import com.mohamed.abdi.book.emil.EmailService;
+import com.mohamed.abdi.book.emil.EmailTemplateName;
 import com.mohamed.abdi.book.role.RoleRepository;
 import com.mohamed.abdi.book.user.Token;
 import com.mohamed.abdi.book.user.TokenRepository;
 import com.mohamed.abdi.book.user.User;
 import com.mohamed.abdi.book.user.UserRepository;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +26,12 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
+    private final EmailService emailService;
 
-    public void register(RegistrationRequest request) {
+    @Value("${application.mailing.frontend.activation-url}")
+    private String activationUrl;
+
+    public void register(RegistrationRequest request) throws MessagingException {
         // Register the user
         var userRole = roleRepository.findByName("USER")
                 // TODO: add a custom exception
@@ -43,9 +51,17 @@ public class AuthenticationService {
         sendValidationEmail(user);
     }
 
-    private void sendValidationEmail(User user) {
+    private void sendValidationEmail(User user) throws MessagingException {
         var newToken = generateAndSaveActivationToken(user);
-        // TODO: send email
+
+        emailService.sendEmail(
+                user.getEmail(),
+                user.fullName(),
+                EmailTemplateName.ACTIVATION_ACCOUNT,
+                activationUrl,
+                newToken,
+                "Activate your account"
+        );
     }
 
     private String generateAndSaveActivationToken(User user) {

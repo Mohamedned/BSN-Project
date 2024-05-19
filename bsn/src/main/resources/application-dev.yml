@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/book_social_network
-    username: username
-    password: password
+    username: mohdev
+    password: wateenonzinwachtwoord
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -17,7 +17,7 @@ spring:
     host: localhost
     port: 1025
     username: maildev
-    password: maildev
+    password: mohpassword
     protocol: smtp
     properties:
       mail:
@@ -33,5 +33,10 @@ spring:
 application:
   security:
     jwt:
-      secret-key: 7C9E761FB516CEDF6AACEE19FF2B3D3A
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
       expiration: 86400000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+Server:
+  port: 8088
